@@ -1,23 +1,28 @@
-# Core of the proxy. Handles the running and general methods
+# :nodoc:
 class Proxy
-  # Starts the proxy server
   attr_accessor :server
 
   def initialize(port)
-    handler = proc { yield }
+    logger = Logger.new($stderr)
+    logger.level = Logger::DEBUG
     @server = WEBrick::HTTPProxyServer.new(Port: port,
-                                           ProxyContentHandler: handler)
+                                           ProxyContentHandler: method(:handle_request),
+                                           Logger: logger)
   end
 
-  def start
-    Signal.trap('INT') { stop }
-    Signal.trap('TERM') { stop }
+  def handle_request(req, res)
+    res.body = 'test' if req.host == 'qa.sit.dotcom.awseuwest1.itvcloud.zone'
+  end
+
+  def start_server
+    Signal.trap('INT') { stop_server }
+    Signal.trap('TERM') { stop_server }
 
     @server.start
   end
 
   # Stops the proxy server
-  def stop
+  def stop_server
     @server.shutdown
   end
 end
