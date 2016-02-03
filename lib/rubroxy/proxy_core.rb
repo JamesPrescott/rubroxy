@@ -6,12 +6,11 @@ class Proxy
     logger = Logger.new($stderr)
     logger.level = Logger::DEBUG
     @server = WEBrick::HTTPProxyServer.new(Port: port,
-                                           ProxyContentHandler: method(:handle_request),
                                            Logger: logger)
   end
 
-  def handle_request(req, res)
-    res.body = 'test' if req.host == 'qa.sit.dotcom.awseuwest1.itvcloud.zone'
+  def add_rules(handler)
+    @server.server.config[:ProxyContentHandler] = handler
   end
 
   def start_server
