@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'require_all'
+gemspec
 gem 'webrick'
 gem 'logger'
+gem 'pry'

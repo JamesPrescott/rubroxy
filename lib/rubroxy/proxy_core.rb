@@ -2,15 +2,18 @@
 class Proxy
   attr_accessor :server
 
-  def initialize(port)
+  def initialize(host, port, logger_level = 2)
     logger = Logger.new($stderr)
-    logger.level = Logger::DEBUG
+    logger.level = logger_level
+    access_log = [] if logger.level >= 2
     @server = WEBrick::HTTPProxyServer.new(Port: port,
-                                           Logger: logger)
+                                           Logger: logger,
+                                           AccessLog: access_log,
+                                           BindAddress: host)
   end
 
   def add_rules(handler)
-    @server.server.config[:ProxyContentHandler] = handler
+    @server.config[:ProxyContentHandler] = handler
   end
 
   def start_server
