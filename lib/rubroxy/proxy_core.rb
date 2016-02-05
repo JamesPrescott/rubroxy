@@ -23,7 +23,6 @@ class Proxy
     @server.start
   end
 
-  # Stops the proxy server
   def stop_server
     @server.shutdown
   end
