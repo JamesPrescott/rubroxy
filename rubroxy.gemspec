@@ -15,5 +15,4 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'webrick', '~> 1.3', '>= 1.3.1'
   s.add_runtime_dependency 'logger', '~> 1.2', '>= 1.2.8'
   s.add_development_dependency 'rspec', '~> 3.4', '>= 3.4.0'
-  s.add_development_dependency 'httparty', '~> 0.13', '>= 0.13.7'
 end
