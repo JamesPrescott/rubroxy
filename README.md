@@ -11,18 +11,18 @@ A simple ruby proxy - built as a lightweight solution that can be integrated eas
 ```
 require 'rubroxy'
 
-proxy = Proxy.new(8080)
+proxy = Proxy.new('localhost', 8080, 0)
 proxy.start_server
 ```
 
 To filter responses and edit if needed, do the following:
 
 ```
-proxy = Proxy.new(8080)
+proxy = Proxy.new('localhost', 8080, 0)
 
 # Creates a proc object with the logic provided in the code block
 handler = proc do |req, res|
-  res.body = "This has been proxied!" if res['content-type'] = 'text/html'
+  res.body = 'This has been proxied!' if res['content-type'] = 'text/html'
 end
 
 proxy.add_rules(handler)

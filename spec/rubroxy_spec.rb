@@ -29,7 +29,7 @@ describe 'Proxy creation without defined logging' do
   end
 
   it 'should set default logging level' do
-    expect(@proxy.server.config[:Logger].level).to be 2
+    expect(@proxy.server.config[:Logger].level).to be 1
   end
 
   after :all do
@@ -39,7 +39,7 @@ end
 
 describe 'Proxy with content handler' do
   before :all do
-    @proxy = Proxy.new('localhost', 8080, 2)
+    @proxy = Proxy.new('localhost', 8080, 3)
     @handler = proc do |req, res|
       res.body = 'test' if req['content-type'] == 'text/html'
     end

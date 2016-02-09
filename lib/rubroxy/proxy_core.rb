@@ -4,17 +4,14 @@ class Proxy
 
   # Creates the proxy object, defines logging levels and host:port
   #
-  #
   # @param host [String] Hostname of the proxy (eg: localhost, 127.0.0.1 etc)
   # @param port [Integer] The expected port number (eg: 8080)
-  # @param logger_level [Integer] Sets the detail of the logger included. 0 to 3
-  # - 3 being less, 0 being debug mode. Access log is turned off for logger
-  # levels 2 and 3.
+  # @param logger_level [Integer] Sets the detail of the logger included.
   # @return [Proxy]
-  def initialize(host, port, logger_level = 2)
+  def initialize(host, port, logger_level = 1)
     logger = Logger.new($stderr)
     logger.level = logger_level
-    access_log = [] if logger.level >= 2
+    access_log = [] if logger.level == 3
     @server = WEBrick::HTTPProxyServer.new(Port: port,
                                            Logger: logger,
                                            AccessLog: access_log,
