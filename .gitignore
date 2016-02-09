@@ -7,6 +7,7 @@
 ## Documentation cache and generated files:
 /doc/
 /rdoc/
+/.yardoc/
 
 ## Gemfile and ruby gemset related
 Gemfile.lock
