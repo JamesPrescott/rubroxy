@@ -11,8 +11,8 @@ Gem::Specification.new do |s|
   s.summary = 'Rubroxy'
   s.description = 'A simple ruby built proxy'
   s.authors = ['James Prescott']
-  s.email = 'jamesprescott1987@gmail.com'
-  s.homepage = 'https://github.com/JamesPrescott/rubroxy'
+  s.email = 'james.prescott@itv.com'
+  s.homepage = 'https://github.com/ITV/rubroxy'
   s.files = Dir.glob('{bin,lib}/**/*') + %w(LICENSE README.md)
   s.require_path = ['lib']
 
