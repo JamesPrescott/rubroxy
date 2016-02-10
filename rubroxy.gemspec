@@ -1,6 +1,10 @@
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'rubroxy/version'
+
 Gem::Specification.new do |s|
   s.name = 'rubroxy'
-  s.version = '0.0.0'
+  s.version = Rubroxy::VERSION
   s.date = '2016-01-29'
   s.license = 'GPL-3.0'
 
@@ -9,8 +13,8 @@ Gem::Specification.new do |s|
   s.authors = ['James Prescott']
   s.email = 'jamesprescott1987@gmail.com'
   s.homepage = 'https://github.com/JamesPrescott/rubroxy'
-  s.files = ['lib/rubroxy.rb',
-             'lib/rubroxy/proxy_core.rb']
+  s.files = Dir.glob('{bin,lib}/**/*') + %w(LICENSE README.md)
+  s.require_path = ['lib']
 
   s.add_runtime_dependency 'webrick', '~> 1.3', '>= 1.3.1'
   s.add_runtime_dependency 'logger', '~> 1.2', '>= 1.2.8'

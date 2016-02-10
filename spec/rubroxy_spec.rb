@@ -45,8 +45,8 @@ describe 'Proxy with content handler' do
     end
   end
 
-  after :each do
-    Process.kill('INT', @pid) if @pid
+  after :all do
+    @proxy.stop_server
   end
 
   it 'should be okay with Proc handler' do
