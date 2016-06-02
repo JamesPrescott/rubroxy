@@ -8,6 +8,7 @@
 /doc/
 /rdoc/
 /.yardoc/
+/.idea/
 
 ## Gemfile and ruby gemset related
 Gemfile.lock
