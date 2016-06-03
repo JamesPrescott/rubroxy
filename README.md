@@ -31,9 +31,17 @@ proxy.start_server
 
 ## Development
 
+### Contribution
+
+If you think you can contribute to the project, whether it's through development or testing or when there's a bug to be fixed - feel free to clone the repo and create an issue so that I'm aware. Once it's complete and tested, create a Pull Request so that it can be merged in.
+
+### Tests
+
+We're using Rspec to build the tests for Rubroxy. If you want to run the current test suite just type `rspec` when in the rubroxy repo directory after cloning. All new features must come with relevant tests.
+
 ### Todos
 
 Currently, this does what I need it to do - but it would be great to expand it and generally make it better :)
 
-- More features! Big one on my mind being an easier way to generate rules for the handler Proc
-- More tests! For more features!
+- An easier way to build rulesets for the proxy before initialisation.
+- Further logging, including potential reports or other ways to analyse proxy sessions
