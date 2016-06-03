@@ -1,6 +1,8 @@
 # Rubroxy
 
-A simple ruby proxy - built as a lightweight solution that can be integrated easily into ruby scripts etc
+A simple ruby proxy wrapped around WEBrick that can be integrated into any ruby script or test. The goal was to make something that solved some of my problems at work without bloating everything with some of the current solutions (no mandatory input/output files, not much configuration required).
+
+This can also be used as part of tests without any external scripts or dependencies beyond ruby.
 
 ## Installation
 
@@ -15,7 +17,7 @@ proxy = Proxy.new('localhost', 8080, 0)
 proxy.start_server
 ```
 
-To filter responses and edit if needed, do the following:
+To filter responses and edit if needed, do something like the following:
 
 ```
 proxy = Proxy.new('localhost', 8080, 0)
@@ -28,6 +30,24 @@ end
 proxy.add_rules(handler)
 proxy.start_server
 ```
+
+You can also filter by `host`, so if you want to only alter headers from a test environment:
+
+```
+handler = proc do |req, res|
+  res.body = 'This has been altered' if req.host == 'something.itv.com'
+end
+```
+
+Combining this with data can give you a pretty powerful proxy ruleset! We can also alter other aspects of the request, including headers:
+
+```
+handler = proc do |req, res|
+  req['auth'] = 'auth_token' if req.host = 'www.google.com'
+end
+```
+
+The above will add the designated header to any request going to that URL.
 
 ## Development
 
@@ -43,5 +63,7 @@ We're using Rspec to build the tests for Rubroxy. If you want to run the current
 
 Currently, this does what I need it to do - but it would be great to expand it and generally make it better :)
 
-- An easier way to build rulesets for the proxy before initialisation.
+- An easier way to build rulesets for the proxy before initialisation. Currently you'd have to parse JSON etc yourself but I'm looking at integrating it as part of the gem.
 - Further logging, including potential reports or other ways to analyse proxy sessions
+- The ability to query the proxy for URLS that have been hit through the connection.
+- Ability to set new rules during runtime. Ideally done without the need for a restart of the server but I realise this might be impossible.

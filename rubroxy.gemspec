@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.authors = ['James Prescott']
   s.email = 'james.prescott@itv.com'
   s.homepage = 'https://github.com/ITV/rubroxy'
-  s.files = Dir.glob('{bin,lib}/**/*') + %w(LICENSE README.md)
+  s.files = Dir.glob('{bin,lib}/**/*') + %w(LICENSE.md README.md)
   s.require_path = ['lib']
 
   s.add_runtime_dependency 'webrick', '~> 1.3', '>= 1.3.1'
