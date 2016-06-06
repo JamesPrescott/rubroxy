@@ -1,6 +1,6 @@
 # Rubroxy
 
-A simple ruby proxy wrapped around WEBrick that can be integrated into any ruby script or test. The goal was to make something that solved some of my problems at work without bloating everything with some of the current solutions (no mandatory input/output files, not much configuration required).
+A simple ruby proxy wrapped around WEBrick that can be integrated into any ruby script or test. The goal was to make something that solved some of my problems at work without needing too much configuration or use of many files.
 
 This can also be used as part of tests without any external scripts or dependencies beyond ruby.
 
