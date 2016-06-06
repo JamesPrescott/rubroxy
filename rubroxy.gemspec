@@ -5,7 +5,7 @@ require 'rubroxy/version'
 Gem::Specification.new do |s|
   s.name = 'rubroxy'
   s.version = Rubroxy::VERSION
-  s.date = '2016-01-29'
+  s.date = '2016-06-08'
   s.license = 'GPL-3.0'
 
   s.summary = 'Rubroxy'

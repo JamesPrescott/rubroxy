@@ -31,7 +31,7 @@ proxy.add_rules(handler)
 proxy.start_server
 ```
 
-You can also filter by `host`, so if you want to only alter headers from a test environment:
+You can also filter by `host`, so if you want to alter a response from a test environment as an example:
 
 ```
 handler = proc do |req, res|
